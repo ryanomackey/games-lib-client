@@ -41430,7 +41430,7 @@ var Stream = (_dec = (0, _reactRedux.connect)(function (store) {
           'div',
           null,
           library.streams.map(function (stream) {
-            var src = 'http://player.twitch.tv/?channel=' + stream.channel.name + '&autoplay=false';
+            var src = 'https://player.twitch.tv/?channel=' + stream.channel.name + '&autoplay=false';
             return _react2.default.createElement(
               'div',
               { className: 'col s12 m12 l6', style: { marginBottom: '1%' }, key: stream._id },
