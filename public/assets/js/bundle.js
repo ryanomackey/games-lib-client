@@ -38350,9 +38350,15 @@ function toggleCompletedFilter() {
 
 function removeTitle(game) {
   bearerToken = sessionStorage.getItem('token');
+  var deleteInstance = _axios2.default.create({
+    baseURL: 'https://games-lib-server.herokuapp.com',
+    headers: { 'Authorization': 'Bearer ' + bearerToken },
+    data: game,
+    method: 'DELETE'
+  });
   return function (dispatch) {
     dispatch({ type: 'REMOVE_TITLE_OPTIMISTIC', payload: game });
-    instance.delete('/games').then(function (response) {
+    deleteInstance.delete('/games').then(function (response) {
       dispatch({ type: 'DELETE_SUCCESSFUL', payload: response });
     }).catch(function (err) {
       dispatch({ type: 'DELETE_ERROR', payload: err });

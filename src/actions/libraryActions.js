@@ -138,6 +138,7 @@ export function removeTitle(game) {
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {'Authorization': 'Bearer ' + bearerToken},
     data: game,
+    method: 'DELETE'
   });
   return function(dispatch) {
     dispatch({type:'REMOVE_TITLE_OPTIMISTIC', payload: game});
