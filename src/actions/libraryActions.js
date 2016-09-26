@@ -136,9 +136,7 @@ export function removeTitle(game) {
   bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
-    headers: {
-      'Authorization': 'Bearer ' + bearerToken,
-    },
+    headers: {'Authorization': 'Bearer ' + bearerToken},
     data: game,
   });
   return function(dispatch) {
