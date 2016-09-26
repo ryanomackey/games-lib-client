@@ -41515,7 +41515,7 @@ var TwitchModal = (_dec = (0, _reactRedux.connect)(function (store) {
       var library = this.props.library;
 
       if (library.showTwitchModal) {
-        var src = 'http://player.twitch.tv/?channel=' + library.currentStream.channel.name + '&autoplay=true';
+        var src = 'https://player.twitch.tv/?channel=' + library.currentStream.channel.name + '&autoplay=true';
         return _react2.default.createElement(
           'div',
           { className: 'twitch-modal' },

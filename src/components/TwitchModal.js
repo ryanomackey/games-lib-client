@@ -17,7 +17,7 @@ export default class TwitchModal extends React.Component {
   render() {
     const {library} = this.props;
     if (library.showTwitchModal) {
-      const src = 'http://player.twitch.tv/?channel=' + library.currentStream.channel.name + '&autoplay=true';
+      const src = 'https://player.twitch.tv/?channel=' + library.currentStream.channel.name + '&autoplay=true';
       return (
         <div className="twitch-modal">
           <div className="col s12 m12 l6" style={{marginBottom:'1%'}}>
