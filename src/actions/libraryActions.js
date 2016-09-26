@@ -134,14 +134,14 @@ export function toggleCompletedFilter() {
 
 export function removeTitle(game) {
   bearerToken = sessionStorage.getItem('token');
-  const instance = axios.create({
+  const deleteInstance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {'Authorization': 'Bearer ' + bearerToken},
     data: game,
   });
   return function(dispatch) {
     dispatch({type:'REMOVE_TITLE_OPTIMISTIC', payload: game});
-    instance.delete('/games')
+    deleteInstance.delete('/games')
     .then(function(response) {
       dispatch({type:'DELETE_SUCCESSFUL', payload: response});
     })
