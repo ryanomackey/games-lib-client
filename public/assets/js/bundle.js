@@ -38230,7 +38230,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var bearerToken = sessionStorage.getItem('token');
 
 var instance = _axios2.default.create({
-  baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+  baseURL: 'https://games-lib-server.herokuapp.com',
   headers: {
     'Authorization': 'Bearer ' + bearerToken
   }
@@ -38425,7 +38425,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var bearerToken = sessionStorage.getItem('token');
 
 var instance = _axios2.default.create({
-  baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+  baseURL: 'https://games-lib-server.herokuapp.com',
   headers: { 'Authorization': 'Bearer ' + bearerToken }
 });
 
@@ -38501,7 +38501,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var bearerToken = sessionStorage.getItem('token');
 
 var instance = _axios2.default.create({
-  baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+  baseURL: 'https://games-lib-server.herokuapp.com',
   headers: {
     'Authorization': 'Bearer ' + bearerToken
   }
@@ -38558,7 +38558,7 @@ function createAccount(data) {
 
 function fetchLibrary(token, dispatch) {
   var instance = _axios2.default.create({
-    baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+    baseURL: 'https://games-lib-server.herokuapp.com',
     headers: { 'Authorization': 'Bearer ' + token }
   });
   instance.get('/games').then(function (response) {
@@ -38585,7 +38585,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function getWishlist() {
   var bearerToken = sessionStorage.getItem('token');
   var instance = _axios2.default.create({
-    baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+    baseURL: 'https://games-lib-server.herokuapp.com',
     headers: { 'Authorization': 'Bearer ' + bearerToken }
   });
   return function (dispatch) {
@@ -41038,7 +41038,7 @@ var SteamImport = (_dec = (0, _reactRedux.connect)(function (store) {
           { className: 'row center', style: { marginTop: '5%' } },
           _react2.default.createElement(
             'a',
-            { className: 'btn waves-effect waves-light', href: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com/steam' },
+            { className: 'btn waves-effect waves-light', href: 'https://games-lib-server.herokuapp.com/steam' },
             _react2.default.createElement('i', { className: 'fa fa-steam-square fa-5x right', 'aria-hidden': 'true' }),
             'Import Steam Library'
           )

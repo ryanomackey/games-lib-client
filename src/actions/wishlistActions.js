@@ -5,7 +5,7 @@ import axios from 'axios';
 export function getWishlist() {
   const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
-    baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+    baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {'Authorization': 'Bearer ' + bearerToken}
   });
   return function(dispatch) {

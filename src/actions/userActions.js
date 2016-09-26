@@ -5,7 +5,7 @@ import axios from 'axios';
 const bearerToken = sessionStorage.getItem('token');
 
 const instance = axios.create({
-  baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+  baseURL: 'https://games-lib-server.herokuapp.com',
   headers: {
     'Authorization': 'Bearer ' + bearerToken
   }
@@ -67,7 +67,7 @@ export function createAccount(data) {
 
 function fetchLibrary(token, dispatch) {
   const instance = axios.create({
-    baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+    baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {'Authorization': 'Bearer ' + token}
   });
   instance.get('/games')

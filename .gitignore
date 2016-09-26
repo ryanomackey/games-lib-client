@@ -1,3 +1,8 @@
-node_modules
 .DS_Store
-forebase.json
+firebase.json
+node_modules
+npm-debug.log
+public/assets/js
+public/bower_components
+.DS_Store
+.env

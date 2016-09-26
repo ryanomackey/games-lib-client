@@ -5,7 +5,7 @@ import axios from 'axios';
 let bearerToken = sessionStorage.getItem('token');
 
 const instance = axios.create({
-  baseURL: 'https://games-lib-dev.us-west-2.elasticbeanstalk.com',
+  baseURL: 'https://games-lib-server.herokuapp.com',
   headers: {
     'Authorization': 'Bearer ' + bearerToken
   }
@@ -134,6 +134,15 @@ export function toggleCompletedFilter() {
 
 export function removeTitle(game) {
   bearerToken = sessionStorage.getItem('token');
+  const instance = axios.create({
+    baseURL: 'https://games-lib-server.herokuapp.com',
+    headers: {
+      'Authorization': 'Bearer ' + bearerToken,
+    },
+    data: {
+      game: game,
+    },
+  });
   return function(dispatch) {
     dispatch({type:'REMOVE_TITLE_OPTIMISTIC', payload: game});
     instance.delete('/games')
