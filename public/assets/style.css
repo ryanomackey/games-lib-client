@@ -1,0 +1,191 @@
+.login-form {
+  border: 1px solid black;
+  margin-top: 5%
+}
+
+.add-game {
+  padding: 1%;
+  border: 1px solid black;
+}
+
+/* The Modal (background) */
+.add-game-modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.add-game-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height:95%;
+}
+
+/* The Modal (background) */
+.create-account-modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.create-account-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px 20px 50px 20px;
+  border: 1px solid #888;
+  width: 55%;
+  height:auto;
+}
+
+/* The Modal (background) */
+.game-modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.game-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  height:95%;
+  overflow: auto;
+}
+
+/* The Modal (background) */
+.steam-modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.steam-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  height:95%;
+  overflow: auto;
+}
+
+.twitch-modal {
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 5px;
+  top: 5px;
+  width: 360px;
+  height: 203px;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,1); /* Black w/ opacity */
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+.card {
+  height:450px;
+}
+
+.card-image {
+  height:350px;
+  overflow-y: hidden;
+  background-color: #263238;
+}
+
+.card-content {
+  height:100px;
+}
+
+.fadeIn-enter {
+  opacity: 0;
+  transition: 0.3s ease-in-out all;
+}
+
+.fadeIn-enter.fadeIn-enter-active {
+  opacity: 1;
+}
+
+iframe {
+  background-color: black;
+}
+
+body {
+  position: relative;
+}
+
+#control-bar {
+  position: fixed;
+  width:100%;
+  z-index: 1;
+  margin:0;
+  background-color: #FFFFFF;
+  background-color: rgba(255,255,255,0.9);
+  bottom:0;
+}
+
+@keyframes raise {
+  0% {bottom:-160px}
+  100% {bottom:0}
+}
+
+@keyframes lower {
+  0% {bottom:0}
+  100% {bottom:-160px}
+}
+
+#add-game-button {
+  position: absolute;
+  top:-13%;
+  right: .8%;
+}
+
+.twitch-close {
+  position: absolute;
+  top:5px;
+  right:5px;
+  color: white;
+}
+
+.tech-stack {
+  display:inline-block;
+  margin-right:5%;
+}
