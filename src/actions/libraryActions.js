@@ -139,9 +139,7 @@ export function removeTitle(game) {
     headers: {
       'Authorization': 'Bearer ' + bearerToken,
     },
-    data: {
-      game: game,
-    },
+    data: game,
   });
   return function(dispatch) {
     dispatch({type:'REMOVE_TITLE_OPTIMISTIC', payload: game});
