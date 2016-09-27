@@ -58,7 +58,8 @@ export default function reducer(state=initialState, action) {
     case "LIBRARY_OPTIMISTIC": {
       return Object.assign({}, state, {
         showGameSearch: false,
-        library: filter([...state.library, action.payload], state.platformArray, state.showIncompleteOnly)
+        library: filter([...state.library, action.payload], state.platformArray, state.showIncompleteOnly),
+        platforms: buildPlatformArray([...state.library, action.payload]),
       });
     }
     case "LOGOUT": {

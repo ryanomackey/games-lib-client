@@ -38243,7 +38243,14 @@ function toggleGameSearch() {
 }
 
 function giantBombSearch(searchQuery) {
-  bearerToken = sessionStorage.getItem('token');
+  var bearerToken = sessionStorage.getItem('token');
+  var instance = _axios2.default.create({
+    baseURL: 'https://games-lib-server.herokuapp.com',
+    headers: {
+      'Authorization': 'Bearer ' + bearerToken
+    }
+  });
+
   return function (dispatch) {
     dispatch({ type: 'SEARCH_START' });
     instance.get('api/search?query=' + searchQuery).then(function (response) {
@@ -38301,7 +38308,13 @@ function togglePlatform(platform) {
 }
 
 function openGameModal(game) {
-  bearerToken = sessionStorage.getItem('token');
+  var bearerToken = sessionStorage.getItem('token');
+  var instance = _axios2.default.create({
+    baseURL: 'https://games-lib-server.herokuapp.com',
+    headers: {
+      'Authorization': 'Bearer ' + bearerToken
+    }
+  });
   return function (dispatch) {
     dispatch({ type: 'OPEN_GAME_MODAL', payload: game });
     instance.get('/api/twitch?q=' + game.game_name).then(function (response) {
@@ -42120,7 +42133,8 @@ function reducer() {
       {
         return Object.assign({}, state, {
           showGameSearch: false,
-          library: (0, _helperFunctions.filter)([].concat(_toConsumableArray(state.library), [action.payload]), state.platformArray, state.showIncompleteOnly)
+          library: (0, _helperFunctions.filter)([].concat(_toConsumableArray(state.library), [action.payload]), state.platformArray, state.showIncompleteOnly),
+          platforms: (0, _helperFunctions.buildPlatformArray)([].concat(_toConsumableArray(state.library), [action.payload]))
         });
       }
     case "LOGOUT":

@@ -18,7 +18,14 @@ export function toggleGameSearch() {
 }
 
 export function giantBombSearch(searchQuery) {
-  bearerToken = sessionStorage.getItem('token');
+  var bearerToken = sessionStorage.getItem('token');
+  const instance = axios.create({
+    baseURL: 'https://games-lib-server.herokuapp.com',
+    headers: {
+      'Authorization': 'Bearer ' + bearerToken
+    }
+  });
+
   return function(dispatch) {
     dispatch({type: 'SEARCH_START'});
     instance.get('api/search?query=' + searchQuery)
@@ -82,7 +89,13 @@ export function togglePlatform(platform) {
 }
 
 export function openGameModal(game) {
-  bearerToken = sessionStorage.getItem('token');
+  var bearerToken = sessionStorage.getItem('token');
+  const instance = axios.create({
+    baseURL: 'https://games-lib-server.herokuapp.com',
+    headers: {
+      'Authorization': 'Bearer ' + bearerToken
+    }
+  });
   return function(dispatch) {
     dispatch({type:'OPEN_GAME_MODAL', payload:game});
     instance.get('/api/twitch?q=' + game.game_name)
