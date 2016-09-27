@@ -38700,17 +38700,26 @@ var About = function (_React$Component) {
           { className: 'container' },
           _react2.default.createElement(
             'div',
-            { className: 'row', style: { marginTop: '15%' } },
+            { className: 'row', style: { marginTop: '10%' } },
             _react2.default.createElement(
               'div',
               { className: 'col s12' },
               _react2.default.createElement(
-                'h1',
+                'div',
                 null,
                 _react2.default.createElement(
-                  'strong',
-                  null,
-                  'About'
+                  'h1',
+                  { style: { display: 'inline-block', marginRight: '1%' } },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Games.lib'
+                  )
+                ),
+                _react2.default.createElement(
+                  'p',
+                  { className: 'flow-text', style: { display: 'inline-block' } },
+                  'is a library tracking application for players with large video game collections.'
                 )
               ),
               _react2.default.createElement('hr', null)
@@ -38718,10 +38727,60 @@ var About = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'row' },
+            { className: 'row', style: { margin: '10% 0 10% 0' } },
             _react2.default.createElement(
               'div',
-              { className: 'col s11 push-s1' },
+              { className: 'col s4 center' },
+              _react2.default.createElement('img', { className: 'responsive-image circle', src: 'http://res.cloudinary.com/dh55hnjfm/image/upload/plusImage_po1ddg' }),
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Add Titles'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Browse a rich database of games to add to your collection, and keep track of which ones you\'ve finished.'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col s4 center' },
+              _react2.default.createElement('img', { className: 'responsive-image circle', src: 'http://res.cloudinary.com/dh55hnjfm/image/upload/c_thumb,h_194,w_194/v1474936820/wishlist.png' }),
+              _react2.default.createElement(
+                'h4',
+                null,
+                'View Wishlist'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'See a list of games you\'re looking to add to your collection along with current prices pulled from Amazon.'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col s4 center' },
+              _react2.default.createElement('img', { className: 'responsive-image circle', src: 'http://res.cloudinary.com/dh55hnjfm/image/upload/c_scale,h_194,w_194/v1474937742/twitch.png' }),
+              _react2.default.createElement(
+                'h4',
+                null,
+                'Watch Twitch'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Check out footage from titles in your library, streaming live from Twitch.'
+              )
+            )
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'div',
+            { className: 'row', style: { margin: '10% 0 10% 0' } },
+            _react2.default.createElement(
+              'div',
+              { className: 'col s12' },
               _react2.default.createElement(
                 'p',
                 { className: 'flow-text' },
@@ -38738,15 +38797,7 @@ var About = function (_React$Component) {
                   'Galvanize'
                 ),
                 ', using:'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'row' },
-            _react2.default.createElement(
-              'div',
-              { className: 'col s11 push-s1' },
+              ),
               _react2.default.createElement(
                 'h4',
                 { className: 'tech-stack' },
@@ -38791,28 +38842,12 @@ var About = function (_React$Component) {
                   { href: 'https://www.postgresql.org/', target: '_blank' },
                   'PostgreSQL'
                 )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'row' },
-            _react2.default.createElement(
-              'div',
-              { className: 'col s11 push-s1' },
+              ),
               _react2.default.createElement(
                 'p',
                 { className: 'flow-text' },
                 'with APIs from:'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'row' },
-            _react2.default.createElement(
-              'div',
-              { className: 'col s11 push-s1' },
+              ),
               _react2.default.createElement(
                 'h4',
                 { className: 'tech-stack' },
