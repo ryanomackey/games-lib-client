@@ -41027,18 +41027,19 @@ var Platform = (_dec = (0, _reactRedux.connect)(function (store) {
 
       var library = this.props.library;
 
+      var style = { display: 'inline-block', width: '150px', marginRight: '1%' };
       if (library.platformDropdown) {
         return _react2.default.createElement(
           _reactCssStagger2.default,
-          { transition: 'fadeIn', delay: 75 },
+          { transition: 'fadeIn', delay: 75, style: { display: 'flex', justifyContent: 'flex-end', alignItems: 'center' } },
           library.platforms.map(function (platform, index) {
             return _react2.default.createElement(
               'p',
-              { key: index, style: { display: 'inline-block', width: '150px', marginRight: '1%' } },
+              { key: index, style: { display: 'inline-block', marginRight: '1.5%' } },
               _react2.default.createElement('input', { type: 'checkbox', id: platform.name, defaultChecked: platform.selected, onClick: _this2.togglePlatform.bind(_this2) }),
               _react2.default.createElement(
                 'label',
-                { htmlFor: platform.name },
+                { htmlFor: platform.name, style: { paddingLeft: '25px' } },
                 platform.name
               )
             );

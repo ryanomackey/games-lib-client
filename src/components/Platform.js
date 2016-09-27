@@ -19,14 +19,15 @@ export default class Platform extends React.Component {
 
   render() {
     const {library} = this.props;
+    const style = {display:'inline-block',width:'150px',marginRight:'1%'};
     if (library.platformDropdown) {
       return (
-        <Stagger transition="fadeIn" delay={75}>
+        <Stagger transition="fadeIn" delay={75} style={{display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
           {library.platforms.map((platform, index) => {
             return (
-              <p key={index} style={{display:'inline-block',width:'150px',marginRight:'1%'}}>
+              <p key={index} style={{display:'inline-block',marginRight:'1.5%'}}>
                 <input type="checkbox" id={platform.name} defaultChecked={platform.selected} onClick={this.togglePlatform.bind(this)}/>
-                <label htmlFor={platform.name}>{platform.name}</label>
+                <label htmlFor={platform.name} style={{paddingLeft:'25px'}}>{platform.name}</label>
               </p>
             )
           })}

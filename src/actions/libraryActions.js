@@ -33,7 +33,7 @@ export function giantBombSearch(searchQuery) {
 }
 
 export function addToLibrary(game) {
-  var bearerToken = sessionStorage.getItem('token');
+  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
