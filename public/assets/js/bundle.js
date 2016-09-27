@@ -38757,7 +38757,7 @@ var About = function (_React$Component) {
             { className: 'row', style: { margin: '10% 0 10% 0' } },
             _react2.default.createElement(
               'div',
-              { className: 'col s4 center' },
+              { className: 'col s12 m4 l4 center' },
               _react2.default.createElement('img', { className: 'responsive-image circle', src: 'http://res.cloudinary.com/dh55hnjfm/image/upload/plusImage_po1ddg' }),
               _react2.default.createElement(
                 'h4',
@@ -38772,7 +38772,7 @@ var About = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col s4 center' },
+              { className: 'col s12 m4 l4 center' },
               _react2.default.createElement('img', { className: 'responsive-image circle', src: 'http://res.cloudinary.com/dh55hnjfm/image/upload/c_thumb,h_194,w_194/v1474936820/wishlist.png' }),
               _react2.default.createElement(
                 'h4',
@@ -38787,7 +38787,7 @@ var About = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col s4 center' },
+              { className: 'col s12 m4 l4s center' },
               _react2.default.createElement('img', { className: 'responsive-image circle', src: 'http://res.cloudinary.com/dh55hnjfm/image/upload/c_scale,h_194,w_194/v1474937742/twitch.png' }),
               _react2.default.createElement(
                 'h4',
@@ -40451,29 +40451,24 @@ var LibraryGame = (_dec = (0, _reactRedux.connect)(function (store) {
         { className: 'row' },
         filteredLibrary.map(function (game, index) {
           var url = 'url(' + game.game_image + ')';
+          var columnStyle = {
+            height: '350px',
+            marginTop: '1%',
+            marginBottom: '1%',
+            cursor: 'pointer'
+          };
+          var cardStyle = {
+            backgroundImage: url,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'auto 100%'
+          };
           {
             if (game.is_visible) {
               return _react2.default.createElement(
                 'div',
-                {
-                  key: index,
-                  className: 'col s4 m3 l2',
-                  style: {
-                    height: '350px',
-                    marginTop: '1%',
-                    marginBottom: '1%'
-                  },
-                  onClick: _this2.openGameModal.bind(_this2, game) },
-                _react2.default.createElement('div', {
-                  className: 'card-image z-depth-4',
-                  onMouseEnter: _this2.addStyle.bind(_this2),
-                  onMouseLeave: _this2.removeStyle.bind(_this2),
-                  style: {
-                    backgroundImage: url,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'auto 100%'
-                  } })
+                { key: index, className: 'col s4 m3 l2', style: columnStyle, onClick: _this2.openGameModal.bind(_this2, game) },
+                _react2.default.createElement('div', { className: 'card-image z-depth-4', onMouseEnter: _this2.addStyle.bind(_this2), onMouseLeave: _this2.removeStyle.bind(_this2), style: cardStyle })
               );
             }
           }
@@ -41027,7 +41022,6 @@ var Platform = (_dec = (0, _reactRedux.connect)(function (store) {
 
       var library = this.props.library;
 
-      var style = { display: 'inline-block', width: '150px', marginRight: '1%' };
       if (library.platformDropdown) {
         return _react2.default.createElement(
           _reactCssStagger2.default,

@@ -63,28 +63,22 @@ export default class LibraryGame extends React.Component {
       <div className="row">
         {filteredLibrary.map((game, index) => {
           const url = 'url(' + game.game_image + ')';
+          const columnStyle = {
+            height:'350px',
+            marginTop:'1%',
+            marginBottom:'1%',
+            cursor:'pointer'
+          };
+          const cardStyle = {
+            backgroundImage: url,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'auto 100%',
+          };
           {if (game.is_visible) {
             return (
-              <div
-                key={index}
-                className="col s4 m3 l2"
-                style={{
-                  height:'350px',
-                  marginTop:'1%',
-                  marginBottom:'1%'
-                }}
-                onClick={this.openGameModal.bind(this, game)}>
-                <div
-                  className="card-image z-depth-4"
-                  onMouseEnter={this.addStyle.bind(this)}
-                  onMouseLeave={this.removeStyle.bind(this)}
-                  style={{
-                    backgroundImage: url,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'auto 100%',
-                  }}>
-                </div>
+              <div key={index} className="col s4 m3 l2" style={columnStyle} onClick={this.openGameModal.bind(this, game)}>
+                <div className="card-image z-depth-4" onMouseEnter={this.addStyle.bind(this)} onMouseLeave={this.removeStyle.bind(this)} style={cardStyle}></div>
               </div>
             )
           }}

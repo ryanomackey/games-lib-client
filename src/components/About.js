@@ -19,17 +19,17 @@ export default class About extends React.Component {
             </div>
           </div>
           <div className="row" style={{margin:'10% 0 10% 0'}}>
-            <div className="col s4 center">
+            <div className="col s12 m4 l4 center">
               <img className="responsive-image circle" src="http://res.cloudinary.com/dh55hnjfm/image/upload/plusImage_po1ddg"/>
               <h4>Add Titles</h4>
               <p>Browse a rich database of games to add to your collection, and keep track of which ones you've finished.</p>
             </div>
-            <div className="col s4 center">
+            <div className="col s12 m4 l4 center">
               <img className="responsive-image circle" src="http://res.cloudinary.com/dh55hnjfm/image/upload/c_thumb,h_194,w_194/v1474936820/wishlist.png"/>
               <h4>View Wishlist</h4>
               <p>See a list of games you're looking to add to your collection along with current prices pulled from Amazon.</p>
             </div>
-            <div className="col s4 center">
+            <div className="col s12 m4 l4s center">
               <img className="responsive-image circle" src="http://res.cloudinary.com/dh55hnjfm/image/upload/c_scale,h_194,w_194/v1474937742/twitch.png"/>
               <h4>Watch Twitch</h4>
               <p>Check out footage from titles in your library, streaming live from Twitch.</p>

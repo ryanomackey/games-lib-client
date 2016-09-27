@@ -19,7 +19,6 @@ export default class Platform extends React.Component {
 
   render() {
     const {library} = this.props;
-    const style = {display:'inline-block',width:'150px',marginRight:'1%'};
     if (library.platformDropdown) {
       return (
         <Stagger transition="fadeIn" delay={75} style={{display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
