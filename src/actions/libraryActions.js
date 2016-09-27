@@ -9,11 +9,10 @@ export function toggleGameSearch() {
 }
 
 export function giantBombSearch(searchQuery) {
-  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
-      'Authorization': 'Bearer ' + bearerToken
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
   });
   return function(dispatch) {
@@ -33,11 +32,10 @@ export function giantBombSearch(searchQuery) {
 }
 
 export function addToLibrary(game) {
-  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
-      'Authorization': 'Bearer ' + bearerToken
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
   });
   return function(dispatch) {
@@ -53,11 +51,10 @@ export function addToLibrary(game) {
 }
 
 export function getLibrary() {
-  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
-      'Authorization': 'Bearer ' + bearerToken
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
   });
   return function(dispatch) {
@@ -91,11 +88,10 @@ export function togglePlatform(platform) {
 }
 
 export function openGameModal(game) {
-  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
-      'Authorization': 'Bearer ' + bearerToken
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
   });
   return function(dispatch) {
@@ -120,11 +116,10 @@ export function toggleReleaseOrder() {
 }
 
 export function toggleComplete(game) {
-  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
-      'Authorization': 'Bearer ' + bearerToken
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
   });
   return function(dispatch) {
@@ -137,11 +132,10 @@ export function toggleComplete(game) {
 }
 
 export function toggleOwn(game) {
-  const bearerToken = sessionStorage.getItem('token');
   const instance = axios.create({
     baseURL: 'https://games-lib-server.herokuapp.com',
     headers: {
-      'Authorization': 'Bearer ' + bearerToken
+      'Authorization': 'Bearer ' + sessionStorage.getItem('token')
     }
   });
   return function(dispatch) {
