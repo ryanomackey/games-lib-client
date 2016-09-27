@@ -38514,7 +38514,7 @@ function importSteamAll(steamLibrary) {
   };
 }
 
-},{"../library/helperFunctions":316,"axios":1}],288:[function(require,module,exports){
+},{"../library/helperFunctions":317,"axios":1}],288:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38680,7 +38680,7 @@ _reactDom2.default.render(_react2.default.createElement(
   )
 ), app);
 
-},{"./components/About":291,"./components/Layout":300,"./components/Wishlist":314,"./store":323,"react":268,"react-dom":79,"react-fastclick":80,"react-redux":83,"react-router":117}],291:[function(require,module,exports){
+},{"./components/About":291,"./components/Layout":300,"./components/Wishlist":314,"./store":324,"react":268,"react-dom":79,"react-fastclick":80,"react-redux":83,"react-router":117}],291:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38814,7 +38814,7 @@ var About = function (_React$Component) {
                 'Games.lib was built by ',
                 _react2.default.createElement(
                   'a',
-                  { href: 'http://www.ryanomackey.com', target: '_blank' },
+                  { href: 'https://ryan-mackey.firebaseapp.com', target: '_blank' },
                   'Ryan Mackey'
                 ),
                 ' while attending a Web Development bootcamp at ',
@@ -40192,7 +40192,7 @@ var Layout = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Layout;
 
-},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"../library/helperFunctions":316,"./Library":301,"./Login":305,"./Navbar":306,"react":268,"react-redux":83}],301:[function(require,module,exports){
+},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"../library/helperFunctions":317,"./Library":301,"./Login":305,"./Navbar":306,"react":268,"react-redux":83}],301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41631,6 +41631,10 @@ var _WishlistItem = require('./WishlistItem');
 
 var _WishlistItem2 = _interopRequireDefault(_WishlistItem);
 
+var _WishlistLoading = require('./WishlistLoading');
+
+var _WishlistLoading2 = _interopRequireDefault(_WishlistLoading);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41675,13 +41679,14 @@ var Wishlist = (_dec = (0, _reactRedux.connect)(function (store) {
               { className: 'col s12' },
               _react2.default.createElement(
                 'h1',
-                null,
+                { style: { display: 'inline-block' } },
                 _react2.default.createElement(
                   'strong',
                   null,
                   'Wishlist'
                 )
               ),
+              _react2.default.createElement(_WishlistLoading2.default, null),
               _react2.default.createElement('hr', null)
             )
           ),
@@ -41695,7 +41700,7 @@ var Wishlist = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Wishlist;
 
-},{"../actions/wishlistActions":289,"./Navbar":306,"./WishlistItem":315,"react":268,"react-redux":83}],315:[function(require,module,exports){
+},{"../actions/wishlistActions":289,"./Navbar":306,"./WishlistItem":315,"./WishlistLoading":316,"react":268,"react-redux":83}],315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41844,6 +41849,85 @@ var WishlistItem = (_dec = (0, _reactRedux.connect)(function (store) {
 exports.default = WishlistItem;
 
 },{"react":268,"react-redux":83}],316:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _default = (_dec = (0, _reactRedux.connect)(function (store) {
+  return {
+    wishlist: store.wishlist
+  };
+}), _dec(_class = function (_React$Component) {
+  _inherits(_default, _React$Component);
+
+  function _default() {
+    _classCallCheck(this, _default);
+
+    return _possibleConstructorReturn(this, (_default.__proto__ || Object.getPrototypeOf(_default)).apply(this, arguments));
+  }
+
+  _createClass(_default, [{
+    key: 'render',
+    value: function render() {
+      var wishlist = this.props.wishlist;
+
+      if (!wishlist.wishlist.length) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'preloader-wrapper small active', style: { margin: '0 0 0 2%' } },
+          _react2.default.createElement(
+            'div',
+            { className: 'spinner-layer spinner-teal-only' },
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper left' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'gap-patch' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper right' },
+              _react2.default.createElement('div', { className: 'circle' })
+            )
+          )
+        );
+      } else {
+        return null;
+      }
+    }
+  }]);
+
+  return _default;
+}(_react2.default.Component)) || _class);
+
+exports.default = _default;
+
+},{"react":268,"react-redux":83}],317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42029,7 +42113,7 @@ function buildWishlist(library) {
   return wishlist;
 }
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42068,7 +42152,7 @@ exports.default = (0, _redux.combineReducers)({
   wishlist: _wishlistReducer2.default
 });
 
-},{"./libraryReducer":318,"./navReducer":319,"./steamImportReducer":320,"./userReducer":321,"./wishlistReducer":322,"redux":278}],318:[function(require,module,exports){
+},{"./libraryReducer":319,"./navReducer":320,"./steamImportReducer":321,"./userReducer":322,"./wishlistReducer":323,"redux":278}],319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42269,7 +42353,7 @@ function reducer() {
   }
 }
 
-},{"../library/helperFunctions":316}],319:[function(require,module,exports){
+},{"../library/helperFunctions":317}],320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42298,7 +42382,7 @@ function reducer() {
   }
 }
 
-},{}],320:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42382,7 +42466,7 @@ function reducer() {
   }
 }
 
-},{"../library/helperFunctions":316}],321:[function(require,module,exports){
+},{"../library/helperFunctions":317}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42454,7 +42538,7 @@ function reducer() {
   }
 }
 
-},{}],322:[function(require,module,exports){
+},{}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42483,7 +42567,7 @@ function reducer() {
   }
 }
 
-},{}],323:[function(require,module,exports){
+},{}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42514,5 +42598,5 @@ var middleware = (0, _redux.applyMiddleware)((0, _reduxPromiseMiddleware2.defaul
 
 exports.default = (0, _redux.createStore)(_reducers2.default, middleware);
 
-},{"./reducers":317,"redux":278,"redux-logger":269,"redux-promise-middleware":270,"redux-thunk":272}]},{},[290])
+},{"./reducers":318,"redux":278,"redux-logger":269,"redux-promise-middleware":270,"redux-thunk":272}]},{},[290])
 //# sourceMappingURL=bundle.js.map

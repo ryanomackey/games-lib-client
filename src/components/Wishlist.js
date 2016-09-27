@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import Navbar from './Navbar';
 import {getWishlist} from '../actions/wishlistActions';
 import WishlistItem from './WishlistItem';
+import WishlistLoading from './WishlistLoading';
 
 @connect((store) => {
   return {
@@ -23,7 +24,8 @@ export default class Wishlist extends React.Component{
         <div className="container">
           <div className="row">
             <div className="col s12">
-              <h1><strong>Wishlist</strong></h1>
+              <h1 style={{display:'inline-block'}}><strong>Wishlist</strong></h1>
+              <WishlistLoading/>
               <hr/>
             </div>
           </div>

@@ -38,7 +38,7 @@ export default class About extends React.Component {
           <hr/>
           <div className="row" style={{margin:'10% 0 10% 0'}}>
             <div className="col s12">
-              <p className="flow-text">Games.lib was built by <a href="http://www.ryanomackey.com" target="_blank">Ryan Mackey</a> while attending a Web Development bootcamp at <a href="http://www.galvanize.com/" target="_blank">Galvanize</a>, using:</p>
+              <p className="flow-text">Games.lib was built by <a href="https://ryan-mackey.firebaseapp.com" target="_blank">Ryan Mackey</a> while attending a Web Development bootcamp at <a href="http://www.galvanize.com/" target="_blank">Galvanize</a>, using:</p>
               <h4 className="tech-stack"><a href="https://facebook.github.io/react/" target="_blank">React</a></h4>
               <h4 className="tech-stack"><a href="http://redux.js.org/" target="_blank">Redux</a></h4>
               <h4 className="tech-stack"><a href="https://nodejs.org/" target="_blank">Node</a></h4>
