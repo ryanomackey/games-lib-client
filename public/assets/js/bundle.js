@@ -38808,7 +38808,7 @@ var About = function (_React$Component) {
                 'Games.lib was built by ',
                 _react2.default.createElement(
                   'a',
-                  { href: 'https://ryan-mackey.firebaseapp.com', target: '_blank' },
+                  { href: 'https://ryanomackey.com', target: '_blank' },
                   'Ryan Mackey'
                 ),
                 ' while attending a Web Development bootcamp at ',
