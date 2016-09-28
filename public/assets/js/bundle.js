@@ -38508,7 +38508,7 @@ function importSteamAll(steamLibrary) {
   };
 }
 
-},{"../library/helperFunctions":318,"axios":1}],288:[function(require,module,exports){
+},{"../library/helperFunctions":319,"axios":1}],288:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38674,7 +38674,7 @@ _reactDom2.default.render(_react2.default.createElement(
   )
 ), app);
 
-},{"./components/About":291,"./components/Layout":300,"./components/Wishlist":315,"./store":325,"react":268,"react-dom":79,"react-fastclick":80,"react-redux":83,"react-router":117}],291:[function(require,module,exports){
+},{"./components/About":291,"./components/Layout":300,"./components/Wishlist":315,"./store":326,"react":268,"react-dom":79,"react-fastclick":80,"react-redux":83,"react-router":117}],291:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40186,7 +40186,7 @@ var Layout = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Layout;
 
-},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"../library/helperFunctions":318,"./Library":301,"./Login":305,"./Navbar":307,"react":268,"react-redux":83}],301:[function(require,module,exports){
+},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"../library/helperFunctions":319,"./Library":301,"./Login":305,"./Navbar":307,"react":268,"react-redux":83}],301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41690,6 +41690,10 @@ var _WishlistLoading = require('./WishlistLoading');
 
 var _WishlistLoading2 = _interopRequireDefault(_WishlistLoading);
 
+var _WishlistError = require('./WishlistError');
+
+var _WishlistError2 = _interopRequireDefault(_WishlistError);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41745,6 +41749,7 @@ var Wishlist = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement('hr', null)
             )
           ),
+          _react2.default.createElement(_WishlistError2.default, null),
           _react2.default.createElement(_WishlistItem2.default, null)
         )
       );
@@ -41755,7 +41760,83 @@ var Wishlist = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Wishlist;
 
-},{"../actions/wishlistActions":289,"./Navbar":307,"./WishlistItem":316,"./WishlistLoading":317,"react":268,"react-redux":83}],316:[function(require,module,exports){
+},{"../actions/wishlistActions":289,"./Navbar":307,"./WishlistError":316,"./WishlistItem":317,"./WishlistLoading":318,"react":268,"react-redux":83}],316:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WishlistError = (_dec = (0, _reactRedux.connect)(function (store) {
+  return {
+    wishlist: store.wishlist
+  };
+}), _dec(_class = function (_React$Component) {
+  _inherits(WishlistError, _React$Component);
+
+  function WishlistError() {
+    _classCallCheck(this, WishlistError);
+
+    return _possibleConstructorReturn(this, (WishlistError.__proto__ || Object.getPrototypeOf(WishlistError)).apply(this, arguments));
+  }
+
+  _createClass(WishlistError, [{
+    key: 'render',
+    value: function render() {
+      var wishlist = this.props.wishlist;
+
+      var linkStyle = {
+        'text-decoration': 'underline',
+        'color': 'red'
+      };
+      if (wishlist.noWishlist) {
+        return _react2.default.createElement(
+          'p',
+          { className: 'flow-text red-text right-align' },
+          'Uh oh! Looks like your wishlist is empty. Add some titles you\'re interested in to your ',
+          _react2.default.createElement(
+            'a',
+            { style: linkStyle, href: '/' },
+            'library'
+          ),
+          '.'
+        );
+      } else if (wishlist.wishlistError) {
+        return _react2.default.createElement(
+          'p',
+          { className: 'flow-text red-text right-align' },
+          'Uh oh! Looks like there was a problem retrieving your wishlist. Please try again later.'
+        );
+      } else {
+        return null;
+      }
+    }
+  }]);
+
+  return WishlistError;
+}(_react2.default.Component)) || _class);
+exports.default = WishlistError;
+
+},{"react":268,"react-redux":83}],317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41860,7 +41941,11 @@ var WishlistItem = (_dec = (0, _reactRedux.connect)(function (store) {
             'div',
             { className: 'row', key: game.game_id },
             _react2.default.createElement('div', { className: 'col s1' }),
-            _react2.default.createElement('div', { className: 'col s2', style: style }),
+            _react2.default.createElement(
+              'a',
+              { href: game.amazon_url, target: '_blank' },
+              _react2.default.createElement('div', { className: 'col s2', style: style })
+            ),
             _react2.default.createElement(
               'div',
               { className: 'col s3' },
@@ -41903,7 +41988,7 @@ var WishlistItem = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = WishlistItem;
 
-},{"react":268,"react-redux":83}],317:[function(require,module,exports){
+},{"react":268,"react-redux":83}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41947,7 +42032,7 @@ var _default = (_dec = (0, _reactRedux.connect)(function (store) {
     value: function render() {
       var wishlist = this.props.wishlist;
 
-      if (!wishlist.wishlist.length) {
+      if (wishlist.showLoader) {
         return _react2.default.createElement(
           'div',
           { className: 'preloader-wrapper small active', style: { margin: '0 0 0 2%' } },
@@ -41982,7 +42067,7 @@ var _default = (_dec = (0, _reactRedux.connect)(function (store) {
 
 exports.default = _default;
 
-},{"react":268,"react-redux":83}],318:[function(require,module,exports){
+},{"react":268,"react-redux":83}],319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42168,7 +42253,7 @@ function buildWishlist(library) {
   return wishlist;
 }
 
-},{}],319:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42207,7 +42292,7 @@ exports.default = (0, _redux.combineReducers)({
   wishlist: _wishlistReducer2.default
 });
 
-},{"./libraryReducer":320,"./navReducer":321,"./steamImportReducer":322,"./userReducer":323,"./wishlistReducer":324,"redux":278}],320:[function(require,module,exports){
+},{"./libraryReducer":321,"./navReducer":322,"./steamImportReducer":323,"./userReducer":324,"./wishlistReducer":325,"redux":278}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42408,7 +42493,7 @@ function reducer() {
   }
 }
 
-},{"../library/helperFunctions":318}],321:[function(require,module,exports){
+},{"../library/helperFunctions":319}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42437,7 +42522,7 @@ function reducer() {
   }
 }
 
-},{}],322:[function(require,module,exports){
+},{}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42521,7 +42606,7 @@ function reducer() {
   }
 }
 
-},{"../library/helperFunctions":318}],323:[function(require,module,exports){
+},{"../library/helperFunctions":319}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42597,7 +42682,7 @@ function reducer() {
   }
 }
 
-},{}],324:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42605,7 +42690,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = reducer;
 var initialState = {
-  wishlist: []
+  wishlist: [],
+  showLoader: false,
+  noWishlist: false,
+  wishlistError: false
 };
 
 function reducer() {
@@ -42613,10 +42701,32 @@ function reducer() {
   var action = arguments[1];
 
   switch (action.type) {
-    case "GET_WISHLIST_SUCCESS":
+    case "GET_WISHLIST_START":
       {
         return Object.assign({}, state, {
-          wishlist: action.payload
+          showLoader: true,
+          wishlistError: false
+        });
+      }
+    case "GET_WISHLIST_SUCCESS":
+      {
+        if (!action.payload.length) {
+          var noWishlist = true;
+        } else {
+          noWishlist = false;
+        }
+        return Object.assign({}, state, {
+          wishlist: action.payload,
+          showLoader: false,
+          noWishlist: noWishlist,
+          wishlistError: false
+        });
+      }
+    case "GET_WISHLIST_ERROR":
+      {
+        return Object.assign({}, state, {
+          showLoader: false,
+          wishlistError: true
         });
       }
     default:
@@ -42626,7 +42736,7 @@ function reducer() {
   }
 }
 
-},{}],325:[function(require,module,exports){
+},{}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42657,5 +42767,5 @@ var middleware = (0, _redux.applyMiddleware)((0, _reduxPromiseMiddleware2.defaul
 
 exports.default = (0, _redux.createStore)(_reducers2.default, middleware);
 
-},{"./reducers":319,"redux":278,"redux-logger":269,"redux-promise-middleware":270,"redux-thunk":272}]},{},[290])
+},{"./reducers":320,"redux":278,"redux-logger":269,"redux-promise-middleware":270,"redux-thunk":272}]},{},[290])
 //# sourceMappingURL=bundle.js.map

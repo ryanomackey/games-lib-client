@@ -42,8 +42,10 @@ export default class WishlistItem extends React.Component {
             <div className="row" key={game.game_id}>
               <div className="col s1">
               </div>
-              <div className="col s2" style={style}>
-              </div>
+              <a href={game.amazon_url} target="_blank">
+                <div className="col s2" style={style}>
+                </div>
+              </a>
               <div className="col s3">
                 <p>{game.game_name}</p>
               </div>

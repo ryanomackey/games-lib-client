@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import {getWishlist} from '../actions/wishlistActions';
 import WishlistItem from './WishlistItem';
 import WishlistLoading from './WishlistLoading';
+import WishlistError from './WishlistError';
 
 @connect((store) => {
   return {
@@ -29,6 +30,7 @@ export default class Wishlist extends React.Component{
               <hr/>
             </div>
           </div>
+          <WishlistError/>
           <WishlistItem/>
         </div>
       </div>

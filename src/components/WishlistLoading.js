@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 export default class extends React.Component {
   render() {
     const {wishlist} = this.props;
-    if (!wishlist.wishlist.length) {
+    if (wishlist.showLoader) {
       return (
         <div className="preloader-wrapper small active" style={{margin:'0 0 0 2%'}}>
           <div className="spinner-layer spinner-teal-only">
