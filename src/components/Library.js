@@ -42,6 +42,10 @@ export default class Library extends React.Component {
         controlBarToggle = 'expand_less';
         controlBarAnimation = 'lower 0.5s linear forwards';
       }
+      let addButtonAnimation = '';
+      if (library.emptyLibrary) {
+        addButtonAnimation = 'shake 0.82s cubic-bezier(.36,.07,.19,.97) 2s'
+      }
       return (
         <main style={{paddingBottom:'200px'}}>
           <div className="container-fluid">
@@ -50,7 +54,7 @@ export default class Library extends React.Component {
                 <i className="material-icons medium teal-text">{controlBarToggle}</i>
               </div>
               <a onClick={this.toggleGameSearch.bind(this)} id="add-game-button"
-                 className="btn-floating btn-large waves-effect waves-light">
+                 className="btn-floating btn-large waves-effect waves-light" style={{animation:addButtonAnimation}}>
                 <i className="material-icons">add</i>
               </a>
               <AddGame />

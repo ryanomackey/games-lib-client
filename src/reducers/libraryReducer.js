@@ -24,6 +24,7 @@ const initialState = {
   currentStream: {},
   showTwitchModal: false,
   showControlBar: true,
+  emptyLibrary: false,
 };
 
 export default function reducer(state=initialState, action) {
@@ -50,9 +51,15 @@ export default function reducer(state=initialState, action) {
       });
     }
     case "LIBRARY_FETCH_SUCCESS": {
+      if (!action.payload.length) {
+        var emptyLibrary = true;
+      } else {
+        emptyLibrary = false;
+      }
       return Object.assign({}, state, {
         library: filter(action.payload, state.platformArray, state.showIncompleteOnly),
         platforms: buildPlatformArray(action.payload),
+        emptyLibrary: emptyLibrary,
       });
     }
     case "LIBRARY_OPTIMISTIC": {
@@ -60,6 +67,7 @@ export default function reducer(state=initialState, action) {
         showGameSearch: false,
         library: filter([...state.library, action.payload], state.platformArray, state.showIncompleteOnly),
         platforms: buildPlatformArray([...state.library, action.payload]),
+        emptyLibrary: false,
       });
     }
     case "LOGOUT": {

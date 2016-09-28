@@ -40281,6 +40281,10 @@ var Library = (_dec = (0, _reactRedux.connect)(function (store) {
           controlBarToggle = 'expand_less';
           controlBarAnimation = 'lower 0.5s linear forwards';
         }
+        var addButtonAnimation = '';
+        if (library.emptyLibrary) {
+          addButtonAnimation = 'shake 0.82s cubic-bezier(.36,.07,.19,.97) 2s';
+        }
         return _react2.default.createElement(
           'main',
           { style: { paddingBottom: '200px' } },
@@ -40302,7 +40306,7 @@ var Library = (_dec = (0, _reactRedux.connect)(function (store) {
               _react2.default.createElement(
                 'a',
                 { onClick: this.toggleGameSearch.bind(this), id: 'add-game-button',
-                  className: 'btn-floating btn-large waves-effect waves-light' },
+                  className: 'btn-floating btn-large waves-effect waves-light', style: { animation: addButtonAnimation } },
                 _react2.default.createElement(
                   'i',
                   { className: 'material-icons' },
@@ -42322,7 +42326,8 @@ var initialState = {
   searchQuery: '',
   currentStream: {},
   showTwitchModal: false,
-  showControlBar: true
+  showControlBar: true,
+  emptyLibrary: false
 };
 
 function reducer() {
@@ -42357,9 +42362,15 @@ function reducer() {
       }
     case "LIBRARY_FETCH_SUCCESS":
       {
+        if (!action.payload.length) {
+          var emptyLibrary = true;
+        } else {
+          emptyLibrary = false;
+        }
         return Object.assign({}, state, {
           library: (0, _helperFunctions.filter)(action.payload, state.platformArray, state.showIncompleteOnly),
-          platforms: (0, _helperFunctions.buildPlatformArray)(action.payload)
+          platforms: (0, _helperFunctions.buildPlatformArray)(action.payload),
+          emptyLibrary: emptyLibrary
         });
       }
     case "LIBRARY_OPTIMISTIC":
@@ -42367,7 +42378,8 @@ function reducer() {
         return Object.assign({}, state, {
           showGameSearch: false,
           library: (0, _helperFunctions.filter)([].concat(_toConsumableArray(state.library), [action.payload]), state.platformArray, state.showIncompleteOnly),
-          platforms: (0, _helperFunctions.buildPlatformArray)([].concat(_toConsumableArray(state.library), [action.payload]))
+          platforms: (0, _helperFunctions.buildPlatformArray)([].concat(_toConsumableArray(state.library), [action.payload])),
+          emptyLibrary: false
         });
       }
     case "LOGOUT":
