@@ -5,20 +5,23 @@ const initialState = {
   showCreateAccount: false,
   duplicateAccount: '',
   createAccountSuccessMessage: '',
-  loginMessage: ''
+  loginMessage: '',
+  showLoader: false,
 };
 
 export default function reducer(state=initialState, action) {
   switch(action.type) {
     case "LOGIN_INIT": {
       return Object.assign({}, state, {
-        createAccountSuccessMessage: ''
+        createAccountSuccessMessage: '',
+        showLoader: true,
       });
     }
     case "LOGIN_SUCCESS": {
       return Object.assign({}, state, {
         login: true,
-        loginMessage: ''
+        loginMessage: '',
+        showLoader: false,
       });
     }
     case "LOGOUT": {
@@ -28,7 +31,8 @@ export default function reducer(state=initialState, action) {
     }
     case "LOGIN_FAILURE": {
       return Object.assign({}, state, {
-        loginMessage: action.payload
+        loginMessage: action.payload,
+        showLoader: false,
       });
     }
     case "TOGGLE_CREATE_ACCOUNT": {

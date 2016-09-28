@@ -38508,7 +38508,7 @@ function importSteamAll(steamLibrary) {
   };
 }
 
-},{"../library/helperFunctions":317,"axios":1}],288:[function(require,module,exports){
+},{"../library/helperFunctions":318,"axios":1}],288:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38674,7 +38674,7 @@ _reactDom2.default.render(_react2.default.createElement(
   )
 ), app);
 
-},{"./components/About":291,"./components/Layout":300,"./components/Wishlist":314,"./store":324,"react":268,"react-dom":79,"react-fastclick":80,"react-redux":83,"react-router":117}],291:[function(require,module,exports){
+},{"./components/About":291,"./components/Layout":300,"./components/Wishlist":315,"./store":325,"react":268,"react-dom":79,"react-fastclick":80,"react-redux":83,"react-router":117}],291:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38908,7 +38908,7 @@ var About = function (_React$Component) {
 
 exports.default = About;
 
-},{"./Navbar":306,"react":268}],292:[function(require,module,exports){
+},{"./Navbar":307,"react":268}],292:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39028,7 +39028,7 @@ var AddGame = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = AddGame;
 
-},{"../actions/libraryActions":285,"./AddGameSearch":293,"./AddGameSearchResults":294,"./LoadingBar":304,"./SteamImport":308,"react":268,"react-redux":83}],293:[function(require,module,exports){
+},{"../actions/libraryActions":285,"./AddGameSearch":293,"./AddGameSearchResults":294,"./LoadingBar":304,"./SteamImport":309,"react":268,"react-redux":83}],293:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39878,7 +39878,7 @@ var FilterBar = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = FilterBar;
 
-},{"../actions/libraryActions":285,"./LibrarySearch":303,"./Platform":307,"react":268,"react-redux":83}],299:[function(require,module,exports){
+},{"../actions/libraryActions":285,"./LibrarySearch":303,"./Platform":308,"react":268,"react-redux":83}],299:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40100,7 +40100,7 @@ var GameModal = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = GameModal;
 
-},{"../actions/libraryActions":285,"./DeleteGame":297,"./Stream":312,"moment":74,"react":268,"react-redux":83}],300:[function(require,module,exports){
+},{"../actions/libraryActions":285,"./DeleteGame":297,"./Stream":313,"moment":74,"react":268,"react-redux":83}],300:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40186,7 +40186,7 @@ var Layout = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Layout;
 
-},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"../library/helperFunctions":317,"./Library":301,"./Login":305,"./Navbar":306,"react":268,"react-redux":83}],301:[function(require,module,exports){
+},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"../library/helperFunctions":318,"./Library":301,"./Login":305,"./Navbar":307,"react":268,"react-redux":83}],301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40326,7 +40326,7 @@ var Library = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Library;
 
-},{"../actions/libraryActions":285,"./AddGame":292,"./FilterBar":298,"./GameModal":299,"./LibraryGame":302,"./SteamModal":310,"./TwitchModal":313,"react":268,"react-redux":83}],302:[function(require,module,exports){
+},{"../actions/libraryActions":285,"./AddGame":292,"./FilterBar":298,"./GameModal":299,"./LibraryGame":302,"./SteamModal":311,"./TwitchModal":314,"react":268,"react-redux":83}],302:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40654,6 +40654,10 @@ var _CreateAccount = require('./CreateAccount');
 
 var _CreateAccount2 = _interopRequireDefault(_CreateAccount);
 
+var _LoginLoader = require('./LoginLoader');
+
+var _LoginLoader2 = _interopRequireDefault(_LoginLoader);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -40766,7 +40770,8 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
                     _react2.default.createElement(
                       'button',
                       { className: 'btn waves-effect waves-light', type: 'submit' },
-                      'Log in'
+                      'Log in',
+                      _react2.default.createElement(_LoginLoader2.default, null)
                     )
                   )
                 ),
@@ -40821,7 +40826,63 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Login;
 
-},{"../actions/userActions":288,"./CreateAccount":295,"react":268,"react-redux":83}],306:[function(require,module,exports){
+},{"../actions/userActions":288,"./CreateAccount":295,"./LoginLoader":306,"react":268,"react-redux":83}],306:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _dec, _class;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = require('react-redux');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LoginLoader = (_dec = (0, _reactRedux.connect)(function (store) {
+  return {
+    user: store.user
+  };
+}), _dec(_class = function (_React$Component) {
+  _inherits(LoginLoader, _React$Component);
+
+  function LoginLoader() {
+    _classCallCheck(this, LoginLoader);
+
+    return _possibleConstructorReturn(this, (LoginLoader.__proto__ || Object.getPrototypeOf(LoginLoader)).apply(this, arguments));
+  }
+
+  _createClass(LoginLoader, [{
+    key: 'render',
+    value: function render() {
+      var user = this.props.user;
+
+      if (user.showLoader) {
+        return _react2.default.createElement('i', { className: 'fa fa-spinner fa-pulse fa-3x fa-fw' });
+      } else {
+        return null;
+      }
+    }
+  }]);
+
+  return LoginLoader;
+}(_react2.default.Component)) || _class);
+exports.default = LoginLoader;
+
+},{"react":268,"react-redux":83}],307:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -40959,7 +41020,7 @@ var Navbar = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Navbar;
 
-},{"../actions/navActions":286,"../actions/userActions":288,"react":268,"react-redux":83}],307:[function(require,module,exports){
+},{"../actions/navActions":286,"../actions/userActions":288,"react":268,"react-redux":83}],308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41043,7 +41104,7 @@ var Platform = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Platform;
 
-},{"../actions/libraryActions":285,"react":268,"react-css-stagger":78,"react-redux":83}],308:[function(require,module,exports){
+},{"../actions/libraryActions":285,"react":268,"react-css-stagger":78,"react-redux":83}],309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41110,7 +41171,7 @@ var SteamImport = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = SteamImport;
 
-},{"react":268,"react-redux":83}],309:[function(require,module,exports){
+},{"react":268,"react-redux":83}],310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41182,7 +41243,7 @@ var SteamImportLoader = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = SteamImportLoader;
 
-},{"react":268,"react-redux":83}],310:[function(require,module,exports){
+},{"react":268,"react-redux":83}],311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41319,7 +41380,7 @@ var SteamModal = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = SteamModal;
 
-},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"./SteamImportLoader":309,"./SteamResults":311,"react":268,"react-redux":83}],311:[function(require,module,exports){
+},{"../actions/libraryActions":285,"../actions/steamImportActions":287,"./SteamImportLoader":310,"./SteamResults":312,"react":268,"react-redux":83}],312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41423,7 +41484,7 @@ var SteamResults = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = SteamResults;
 
-},{"../actions/steamImportActions":287,"react":268,"react-redux":83}],312:[function(require,module,exports){
+},{"../actions/steamImportActions":287,"react":268,"react-redux":83}],313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41514,7 +41575,7 @@ var Stream = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Stream;
 
-},{"../actions/libraryActions":285,"react":268,"react-redux":83}],313:[function(require,module,exports){
+},{"../actions/libraryActions":285,"react":268,"react-redux":83}],314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41597,7 +41658,7 @@ var TwitchModal = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = TwitchModal;
 
-},{"../actions/libraryActions":285,"react":268,"react-redux":83}],314:[function(require,module,exports){
+},{"../actions/libraryActions":285,"react":268,"react-redux":83}],315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41694,7 +41755,7 @@ var Wishlist = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = Wishlist;
 
-},{"../actions/wishlistActions":289,"./Navbar":306,"./WishlistItem":315,"./WishlistLoading":316,"react":268,"react-redux":83}],315:[function(require,module,exports){
+},{"../actions/wishlistActions":289,"./Navbar":307,"./WishlistItem":316,"./WishlistLoading":317,"react":268,"react-redux":83}],316:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41842,7 +41903,7 @@ var WishlistItem = (_dec = (0, _reactRedux.connect)(function (store) {
 }(_react2.default.Component)) || _class);
 exports.default = WishlistItem;
 
-},{"react":268,"react-redux":83}],316:[function(require,module,exports){
+},{"react":268,"react-redux":83}],317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -41921,7 +41982,7 @@ var _default = (_dec = (0, _reactRedux.connect)(function (store) {
 
 exports.default = _default;
 
-},{"react":268,"react-redux":83}],317:[function(require,module,exports){
+},{"react":268,"react-redux":83}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42107,7 +42168,7 @@ function buildWishlist(library) {
   return wishlist;
 }
 
-},{}],318:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42146,7 +42207,7 @@ exports.default = (0, _redux.combineReducers)({
   wishlist: _wishlistReducer2.default
 });
 
-},{"./libraryReducer":319,"./navReducer":320,"./steamImportReducer":321,"./userReducer":322,"./wishlistReducer":323,"redux":278}],319:[function(require,module,exports){
+},{"./libraryReducer":320,"./navReducer":321,"./steamImportReducer":322,"./userReducer":323,"./wishlistReducer":324,"redux":278}],320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42347,7 +42408,7 @@ function reducer() {
   }
 }
 
-},{"../library/helperFunctions":317}],320:[function(require,module,exports){
+},{"../library/helperFunctions":318}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42376,7 +42437,7 @@ function reducer() {
   }
 }
 
-},{}],321:[function(require,module,exports){
+},{}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42460,7 +42521,7 @@ function reducer() {
   }
 }
 
-},{"../library/helperFunctions":317}],322:[function(require,module,exports){
+},{"../library/helperFunctions":318}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42472,7 +42533,8 @@ var initialState = {
   showCreateAccount: false,
   duplicateAccount: '',
   createAccountSuccessMessage: '',
-  loginMessage: ''
+  loginMessage: '',
+  showLoader: false
 };
 
 function reducer() {
@@ -42483,14 +42545,16 @@ function reducer() {
     case "LOGIN_INIT":
       {
         return Object.assign({}, state, {
-          createAccountSuccessMessage: ''
+          createAccountSuccessMessage: '',
+          showLoader: true
         });
       }
     case "LOGIN_SUCCESS":
       {
         return Object.assign({}, state, {
           login: true,
-          loginMessage: ''
+          loginMessage: '',
+          showLoader: false
         });
       }
     case "LOGOUT":
@@ -42502,7 +42566,8 @@ function reducer() {
     case "LOGIN_FAILURE":
       {
         return Object.assign({}, state, {
-          loginMessage: action.payload
+          loginMessage: action.payload,
+          showLoader: false
         });
       }
     case "TOGGLE_CREATE_ACCOUNT":
@@ -42532,7 +42597,7 @@ function reducer() {
   }
 }
 
-},{}],323:[function(require,module,exports){
+},{}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42561,7 +42626,7 @@ function reducer() {
   }
 }
 
-},{}],324:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -42592,5 +42657,5 @@ var middleware = (0, _redux.applyMiddleware)((0, _reduxPromiseMiddleware2.defaul
 
 exports.default = (0, _redux.createStore)(_reducers2.default, middleware);
 
-},{"./reducers":318,"redux":278,"redux-logger":269,"redux-promise-middleware":270,"redux-thunk":272}]},{},[290])
+},{"./reducers":319,"redux":278,"redux-logger":269,"redux-promise-middleware":270,"redux-thunk":272}]},{},[290])
 //# sourceMappingURL=bundle.js.map

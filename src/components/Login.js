@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { login } from '../actions/userActions';
 import { toggleCreateAccount} from '../actions/userActions';
 import CreateAccount from './CreateAccount';
+import LoginLoader from './LoginLoader';
 
 @connect((store) => {
   return {
@@ -52,7 +53,10 @@ export default class Login extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col s12 right-align">
-                    <button className="btn waves-effect waves-light" type="submit">Log in</button>
+                    <button className="btn waves-effect waves-light" type="submit">
+                      Log in
+                      <LoginLoader/>
+                    </button>
                   </div>
                 </div>
                 <div className="row">
