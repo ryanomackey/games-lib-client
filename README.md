@@ -2,7 +2,7 @@
 
 This is the client-side React/Redux code for my capstone project while at [Galvanize](http://www.galvanize.com). (The back-end can be found [here](https://github.com/ryanomackey/games-lib-server)).
 
-![screenshot](http://res.cloudinary.com/dh55hnjfm/image/upload/v1474935936/games-lib_t7jj08.png)
+![screenshot](http://res.cloudinary.com/dh55hnjfm/image/upload/v1475163258/Screen_Shot_2016-09-29_at_9.12.39_AM_btvc8q.png)
 
 # Features
 
