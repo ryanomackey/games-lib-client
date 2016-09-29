@@ -13,8 +13,8 @@ export default class WishlistError extends React.Component{
   render() {
     const {wishlist} = this.props;
     const linkStyle = {
-      'text-decoration':'underline',
-      'color':'red',
+      textDecoration:'underline',
+      color:'red',
     }
     if (wishlist.noWishlist) {
       return (

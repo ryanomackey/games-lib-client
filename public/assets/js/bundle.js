@@ -41809,8 +41809,8 @@ var WishlistError = (_dec = (0, _reactRedux.connect)(function (store) {
       var wishlist = this.props.wishlist;
 
       var linkStyle = {
-        'text-decoration': 'underline',
-        'color': 'red'
+        textDecoration: 'underline',
+        color: 'red'
       };
       if (wishlist.noWishlist) {
         return _react2.default.createElement(
